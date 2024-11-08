@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem
+  }
+}
+
+.form-elements-header
+{
+  background: #434a60;
+  padding:2rem;
+}
+
+.form-elements-list
+{
+  background:#4c536f;
+  padding: 2rem;
+}
+.form-elements-title
+{
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+}
