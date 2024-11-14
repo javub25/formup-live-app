@@ -1,10 +1,9 @@
 import { FieldLibrary } from "@/components/FieldLibrary/FieldLibrary"
 import { FormBuilder } from "@/components/FormBuilder/FormBuilder"
 import { DndContext} from "@dnd-kit/core"
-import { handleDragStart, handleDragOver, handleDragEnd } from "@/utils/DragEvents/handleEvents"
+import { handleDragStart, handleDragOver, handleDragEnd } from "@/utils/Draggable/Events/handleEvents"
 
 function App() {
-
   return (
     <main>
       {/*Context to share data between Draggable (FielLibrary) and Droppable (FormBuilder)*/}
