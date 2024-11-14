@@ -1,11 +1,12 @@
 {/*useDraggable allows me to register the component as a draggable component*/}
 import { useDraggable } from "@dnd-kit/core"
 import {CSS} from '@dnd-kit/utilities';
-import {getUniqueID} from "@/utils/DragDropID/getUniqueID.tsx"
+import {DraggableType} from "@/types/Draggable/DraggableTypes.tsx"
 
-export const useCreateDraggable = () => 
+/*Custom hook whose purpose is to make a component draggable*/
+export const useCreateDraggable = (params: DraggableType) => 
 {
-    const id = getUniqueID();
+    const { DraggableID } = params;
 
     {/*setNodeRef allows me te register a HTML element into draggable area
         listeners allows me to start dragging a element
@@ -14,7 +15,7 @@ export const useCreateDraggable = () =>
     */}
 
     const {attributes, listeners, setNodeRef, transform} = useDraggable({
-        id: id,
+        id: DraggableID,
     });
 
     const style = {

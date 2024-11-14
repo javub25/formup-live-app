@@ -1,5 +1,8 @@
 import { Checkbox, Label } from "@/utils/ShadcnElements.tsx";
 import { useCreateDraggable } from "@/hooks/CreateDraggable/useCreateDraggable"
+import { updateDescription } from "@/utils/Draggable/Attributes/updateDescription";
+import { getUniqueID } from "@/utils/DragDropID/getUniqueID";
+
 
 export const MultipleChoice = () => {
     const items = [
@@ -20,8 +23,11 @@ export const MultipleChoice = () => {
             label: "Option 4",
         },
     ];
-    const {attributes, listeners, style} = useCreateDraggable();
+    const UUID = getUniqueID();
 
+    const {attributes, listeners, style} = useCreateDraggable({DraggableID: `MultipleChoice-${UUID}`})
+
+    updateDescription({attributes, description: "draggable MultipleChoice"});
 
     return (
         <div className="grid w-full max-w-sm items-center gap-1.5" {...attributes} {...listeners} style={style}>
