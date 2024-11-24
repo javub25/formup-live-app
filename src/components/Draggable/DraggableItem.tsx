@@ -5,15 +5,15 @@ import { updateDescription } from "@/utils/Draggable/Attributes/updateDescriptio
 
 export const DraggableItem = (props: DraggableItemType) => 
 {
-    const {DraggableID, DraggableName} = props;
+    const {id, label} = props;
 
-    const {attributes, listeners, setNodeRef, style} = useCreateDraggable({DraggableID: DraggableID});
+    const {attributes, listeners, setNodeRef, style} = useCreateDraggable({id: id});
     
-    updateDescription({attributes, description: `draggable ${DraggableName}`});
+    updateDescription({attributes, description: `draggable ${label}`});
 
     return <>
         <div ref={setNodeRef} {...attributes}{...listeners} style={style}>
-            {DraggableName}
+            {label}
         </div>
     </>
 }

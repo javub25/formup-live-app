@@ -8,8 +8,8 @@ export const Draggable = () =>
         return (
             <DraggableItem 
                 key={draggable.id} 
-                DraggableID={draggable.id} 
-                DraggableName={draggable.label} 
+                id={draggable.id} 
+                label={draggable.label} 
             /> 
         )
     })
