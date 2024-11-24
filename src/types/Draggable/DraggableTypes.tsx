@@ -7,19 +7,19 @@ export interface DescriptionType  {
 }
 
 export interface DraggableType {
-    DraggableID: string;
+    id: string;
 }
 
-/*ActiveType only needs DraggableID which already exists in DraggableType.*/
+/*ActiveType only needs id which already exists in DraggableType.*/
 export interface ActiveType {
-    DraggableID: DraggableType["DraggableID"];
+    id: DraggableType["id"];
 }
 
-/*DraggableItemType needs DraggableID which already exists in DraggableType.
+/*DraggableItemType needs id which already exists in DraggableType.
 I'm using extends to add a new properties to join with DraggableID.*/
 export interface DraggableItemType extends DraggableType {
-    key: string,
-    DraggableName: string
+    key?: string,
+    label: string
 }
 
 

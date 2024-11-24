@@ -6,7 +6,7 @@ import {DraggableType} from "@/types/Draggable/DraggableTypes.tsx"
 /*Custom hook whose purpose is to make a component draggable*/
 export const useCreateDraggable = (params: DraggableType) => 
 {
-    const { DraggableID } = params;
+    const { id } = params;
 
     {/*setNodeRef allows me te register a HTML element into draggable area
         listeners allows me to start dragging a element
@@ -15,7 +15,7 @@ export const useCreateDraggable = (params: DraggableType) =>
     */}
 
     const {attributes, listeners, setNodeRef, transform} = useDraggable({
-        id: DraggableID,
+        id,
     });
 
     const style = {
