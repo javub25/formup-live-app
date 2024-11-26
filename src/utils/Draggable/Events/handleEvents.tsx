@@ -1,5 +1,5 @@
 import { EventsType } from "@/types/DndContext/EventsType";
-import { DraggableList } from "@/models/DraggableList";
+import { getActiveElement } from "@/utils/Draggable/getActiveElement";
 
 //Would be triggered once the user starts dragging an element.
 export const handleDragStart: EventsType["handleDragStart"] = (event, setActiveDraggable)  => {
@@ -11,7 +11,7 @@ export const handleDragStart: EventsType["handleDragStart"] = (event, setActiveD
 export const handleDragOver: EventsType["handleDragOver"] = (event, setIsOverDroppable) => {
     //We get droppable id
     const {over} = event;
-    setIsOverDroppable(over?.id!==undefined && true);
+    setIsOverDroppable(over?.id === "DroppableArea-98298432165");
 };
 //Would be triggered when the user leaves the draggable component on a part of the screen or on the droppable component.
 export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDroppable, setDroppableItems) => {
@@ -21,8 +21,7 @@ export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDropp
 
     if(over?.id!==undefined)
     {
-        const currentDraggable = DraggableList.find((draggable) => draggable.id === active.id);
-        
+        const currentDraggable = getActiveElement(active.id.toString());
 
         if(currentDraggable)
             setDroppableItems(oldDroppable => [...oldDroppable, currentDraggable]);
