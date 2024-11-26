@@ -12,7 +12,7 @@ export const DraggableItem = (props: DraggableItemType) =>
     updateDescription({attributes, description: `draggable ${label}`});
 
     return <>
-        <div ref={setNodeRef} {...attributes}{...listeners} style={style}>
+        <div ref={setNodeRef} {...attributes}{...listeners} style={style} className="draggable-item">
             {label}
         </div>
     </>
