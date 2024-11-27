@@ -1,4 +1,4 @@
-import { getUniqueID } from "@/utils/DragDropID/getUniqueID";
+import { getUniqueID } from "@/utils/Draggable/getUniqueID";
 
 export const DraggableList = [
     {id: `Email-${getUniqueID()}`, label: "Email"},
