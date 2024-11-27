@@ -1,8 +1,8 @@
-import { ActiveType } from "@/types/Draggable/DraggableTypes"
+import { DraggableType } from "@/types/Draggable/DraggableTypes"
 import { useState } from "react"
 
 export const useActiveDraggable = () => {
-    const [activeDraggable, setActiveDraggable] = useState<ActiveType>({
+    const [activeDraggable, setActiveDraggable] = useState<DraggableType>({
         id: "",
     })
 
