@@ -7,8 +7,8 @@ export const FormBuilder = ({IsOver, DroppableItems}: DroppableType) => {
     const {setNodeRef} = useCreateDroppable();
     
     return (
-        <div ref={setNodeRef} className="p-8">
-            <article className={`${IsOver ? "border-4 border-green-500": "border-2 border-gray-300"} p-2 min-h-[200px] rounded-sm`}>
+        <div ref={setNodeRef} className="flex-1 p-4 md:p-8">
+            <article className={`p-2 min-h-[400px] rounded-sm bg-white shadow-md${IsOver ? " border-4 border-green-500" : ''}`}>
                 <header className="p-8">
                     <h1 className="form-elements-title text-center">Mi Formulario</h1>
                     {!IsOver && <p className="form-elements-description mt-4">Drag and Drop your elements here</p>}
