@@ -1,13 +1,14 @@
 import { useCreateDroppable } from "@/hooks/CreateDroppable/useCreateDroppable";
 import { DroppableType } from "@/types/Droppable/DroppableType";
-import { DroppableList } from "@/components/Droppable/DroppableList";
+import trashIcon from "@/assets/svg/trash.svg";
+import { removeItems } from "@/utils/Droppable/removeItems";
 
-export const FormBuilder = ({IsOver, DroppableItems}: DroppableType) => {
+export const FormBuilder = ({IsOver, DroppableItems, setDroppableItems}: DroppableType) => {
 
     const {setNodeRef} = useCreateDroppable();
     
     return (
-        <div ref={setNodeRef} className="flex-1 p-4 md:p-8">
+        <div ref={setNodeRef} className="flex-1 md:px-4">
             <article className={`p-2 min-h-[400px] rounded-sm bg-white shadow-md${IsOver ? " border-4 border-green-500" : ''}`}>
                 <header className="p-8">
                     <h1 className="form-elements-title text-center">Mi Formulario</h1>
@@ -17,8 +18,10 @@ export const FormBuilder = ({IsOver, DroppableItems}: DroppableType) => {
                 <section>
                     {DroppableItems.map((item) => {
                         return (
-                              <div key={item.id} className="p-4"> 
-                                  <DroppableList id={item.id} label={item.label} />
+                            <div key={item.id} className="droppable-item"> 
+                                  <h2 className="form-elements-title">{item.label}</h2>
+                                  <img src={trashIcon} alt="Delete item" className="mt-6"
+                                  onClick={() => removeItems({id: item.id, setDroppableItems})}/>
                               </div>
                             );
                         })

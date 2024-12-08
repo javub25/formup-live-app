@@ -3,7 +3,7 @@ import { Draggable } from "@/components/Draggable/Draggable";
 export const FieldLibrary = () => 
 {    
     return (
-        <div className="w-full md:w-64 bg-white p-4 shadow-md p-8 text-white">
+        <div className="w-full md:w-64 bg-white shadow-md p-8 text-white">
             <header className="form-elements">
                 <h1 className="form-elements-title">Elementos de Formulario</h1>
             </header>
