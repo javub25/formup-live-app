@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
+
+body
+{
+  background: rgb(199, 210, 254);
+  margin: 0;
+  overflow-x: hidden;
+}
 
 @layer base {
   :root {
@@ -28,19 +38,34 @@
 {
   touch-action: none;
   cursor: grab;
+  margin-top: 0.8rem;
+  padding: 0.5rem;
+}
+
+.droppable-item, .draggable-item
+{
   border: 1px solid #e4e4e7;
   border-radius: 1rem; 
   background: #ffffff;
   color: #3f3f46;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin-top: 0.8rem;
-  padding: 0.5rem;
 }
 
-main
+.droppable-item {
+  margin: 1.8rem;
+  padding: 0.8rem;
+}
+
+main, nav
 {
   width: 100vw;
-  background-image: linear-gradient(to bottom right, rgb(243, 232, 255), rgb(199, 210, 254));
   overflow: hidden;
+}
+
+nav
+{
+  display:flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
