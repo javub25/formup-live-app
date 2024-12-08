@@ -1,5 +1,6 @@
 import { EventsType } from "@/types/DndContext/EventsType";
 import { getActiveElement } from "@/utils/Draggable/getActiveElement";
+import { addItems } from "@/utils/Droppable/addItems.tsx";
 
 //Would be triggered once the user starts dragging an element.
 export const handleDragStart: EventsType["handleDragStart"] = (event, setActiveDraggable)  => {
@@ -24,6 +25,8 @@ export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDropp
         const currentDraggable = getActiveElement(active.id.toString());
 
         if(currentDraggable)
-            setDroppableItems(oldDroppable => [...oldDroppable, currentDraggable]);
+        {
+            addItems({setDroppableItems, currentDraggable});              
+        }
     }   
 };
