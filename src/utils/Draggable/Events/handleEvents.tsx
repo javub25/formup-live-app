@@ -1,6 +1,5 @@
 import { EventsType } from "@/types/DndContext/EventsType";
 import { getActiveElement } from "@/utils/Draggable/getActiveElement";
-import { addItems } from "@/utils/Droppable/addItems.tsx";
 
 //Would be triggered once the user starts dragging an element.
 export const handleDragStart: EventsType["handleDragStart"] = (event, setActiveDraggable)  => {
@@ -15,7 +14,7 @@ export const handleDragOver: EventsType["handleDragOver"] = (event, setIsOverDro
     setIsOverDroppable(over?.id === "DroppableArea-98298432165");
 };
 //Would be triggered when the user leaves the draggable component on a part of the screen or on the droppable component.
-export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDroppable, setDroppableItems) => {
+export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDroppable, addItems) => {
     //We get droppable and draggable id
     const {active, over} = event;
     setIsOverDroppable(false);
@@ -26,7 +25,7 @@ export const handleDragEnd: EventsType["handleDragEnd"] = (event, setIsOverDropp
 
         if(currentDraggable)
         {
-            addItems({setDroppableItems, currentDraggable});              
+            addItems(currentDraggable);              
         }
     }   
 };

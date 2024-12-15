@@ -1,5 +1,5 @@
 import { DragOverEvent, DragStartEvent, DragEndEvent } from "@dnd-kit/core"
-import {DroppableItems} from "@/types/Droppable/DroppableType"
+import { DroppableStore } from "@/types/Droppable/DroppableStore";
 
 export type EventsType = {
     handleDragStart: (
@@ -12,8 +12,7 @@ export type EventsType = {
     ) => void;
     handleDragEnd: (event: DragEndEvent, 
         setIsOverDroppable: (IsOver: boolean) => void,
-        setDroppableItems: (updater: (oldValue: DroppableItems) => DroppableItems) => void
-        
+        addItems: DroppableStore["addItems"]        
     ) => void;
 }
 
