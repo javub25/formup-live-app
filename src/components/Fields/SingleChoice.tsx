@@ -1,17 +1,27 @@
-import {RadioGroup, RadioGroupItem, Label} from "@/utils/ShadcnElements.tsx";
+import {RadioGroup, RadioGroupItem, Label} from "@/utils/ShadcnElements.ts";
+import { DroppableField } from "@/types/Droppable/DroppableType.ts"
 
-export const SingleChoice = () => 
+
+export const SingleChoice = (props: DroppableField) => 
 {
+    const {label, options} = props;
+
     return (
-        <RadioGroup defaultValue="option-one">
-            <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-one" id="option-one" />
-                <Label htmlFor="option-one">Option One</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-                <RadioGroupItem value="option-two" id="option-two" />
-                <Label htmlFor="option-two">Option Two</Label>
-            </div>
-        </RadioGroup>
+        <>
+            <Label htmlFor="label">{label || "Single Choice"}</Label>
+            
+            <RadioGroup className="mt-2">
+                {options?.map((option, index) => {
+                    const {value} = option;
+
+                    return (
+                        <div key={index} className="flex items-center space-x-2">
+                            <RadioGroupItem value={value} id={value} />
+                            <Label htmlFor={value}>{value}</Label>
+                        </div>
+                    )
+                })}
+            </RadioGroup>
+        </>
     )
 }

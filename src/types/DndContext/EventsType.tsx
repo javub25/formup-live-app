@@ -12,7 +12,7 @@ export type EventsType = {
     ) => void;
     handleDragEnd: (event: DragEndEvent, 
         setIsOverDroppable: (IsOver: boolean) => void,
-        addItems: DroppableStore["addItems"]        
+        addItems: DroppableStore["addDroppable"]        
     ) => void;
 }
 

@@ -1,10 +1,13 @@
-import {Input, Label} from "@/utils/ShadcnElements.tsx"
+import {Input, Label} from "@/utils/ShadcnElements.ts"
+import { DroppableField } from "@/types/Droppable/DroppableType.ts"
 
-export const Email = () => 
+export const Email = (props: DroppableField) => 
 {        
+    const {label} = props;
+
     return (
         <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="email" className="mb-2">Email</Label>
+            <Label htmlFor="email" className="mb-2">{label || "Email"}</Label>
             <Input type="email" id="email" placeholder="Email" />
         </div>        
     )
