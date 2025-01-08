@@ -5,15 +5,15 @@ import { MultipleChoice } from "@/components/Fields/MultipleChoice";
 import { DroppableListType } from "@/types/Droppable/DroppableType";
 
 export const DroppableList = (props: DroppableListType) => {
-    const {label} = props;
+    const {label, type, options} = props;
 
     const fields: {[key: string]: React.ReactElement} = {
-        "Email": <Email />,
-        "FullName": <FullName />,
-        "SingleChoice": <SingleChoice />,
-        "MultipleChoice": <MultipleChoice />   
+        "Email": <Email label={label}/>,
+        "FullName": <FullName label={label}/>,
+        "SingleChoice": <SingleChoice label={label} options={options}/>,
+        "MultipleChoice": <MultipleChoice label={label} options={options}/>   
     }
-    const CurrentDroppable = () => fields[label];
+    const CurrentDroppable = () => fields[type];
 
     return <CurrentDroppable />
 }

@@ -5,21 +5,21 @@ import { handleDragStart, handleDragOver, handleDragEnd } from "@/utils/Draggabl
 import { useActiveDraggable } from "@/hooks/ActiveDraggable/useActiveDraggable.tsx"
 import { useOverDroppable } from "@/hooks/OverDroppable/useOverDroppable"
 import { getActiveElement } from "@/utils/Draggable/getActiveElement"
-import { useDroppableStore } from "@/store/useDroppableStore";
+import { useDroppableStore } from "@/store/useDroppableStore.ts";
 
 export const Build = () => 
 {
   const {activeDraggable, setActiveDraggable} = useActiveDraggable();
   const {id} = activeDraggable;
   const {IsOverDroppable, setIsOverDroppable} = useOverDroppable();
-  const addItems = useDroppableStore((state) => state.addItems);
+  const addDroppable = useDroppableStore((state) => state.addDroppable);
 
   return (
     <section className="p-4">
         <DndContext 
             onDragStart={(e) => handleDragStart(e, setActiveDraggable)}
             onDragOver={(e) => handleDragOver(e, setIsOverDroppable)}
-            onDragEnd={(e) => handleDragEnd(e, setIsOverDroppable, addItems)}>
+            onDragEnd={(e) => handleDragEnd(e, setIsOverDroppable, addDroppable)}>
 
             <aside className="flex flex-col gap-y-4 md:flex-row min-h-screen">
                 <FieldLibrary />
