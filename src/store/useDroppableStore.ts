@@ -18,7 +18,7 @@ export const useDroppableStore = create<DroppableStore>()(
 
                     if (currentDroppable.length === 0 || droppableIndex === -1) {
                      
-                        const {newDroppable} = addDroppableElement(id, label);
+                        const {newDroppable} = addDroppableElement({id, label});
                         
                         set({ DroppableItems: [...currentDroppable, newDroppable] });
                     }
@@ -32,7 +32,7 @@ export const useDroppableStore = create<DroppableStore>()(
                 },
                 
                 updateDroppable: (formData) => {
-                    const {type, label, options} = formData;
+                    const {type, label, options, validation} = formData;
                     const currentDroppable = get().DroppableItems;
 
                     const {droppableIndex} = findDroppableIndex(currentDroppable, type);
@@ -42,7 +42,8 @@ export const useDroppableStore = create<DroppableStore>()(
                          currentDroppable[droppableIndex] = {
                             ...currentDroppable[droppableIndex],
                             label,
-                            options
+                            options, 
+                            validation
                         }
                         set({ DroppableItems: [...currentDroppable] });
                     }
