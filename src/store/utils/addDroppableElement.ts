@@ -1,10 +1,11 @@
-import { DroppableItemsType } from "@/types/Droppable/DroppableType.ts";
+import { DroppableAddedProps } from "@/types/Droppable/DroppableType.ts";
+import {DroppableItemsType} from "@/types/Droppable/DroppableType.ts";
 
-export const addDroppableElement = (id: DroppableItemsType["id"], label: DroppableItemsType["label"]) => 
+export const addDroppableElement = ({id, label} : DroppableAddedProps) => 
 {
      const newDroppable: DroppableItemsType = {
         id, 
-        type: label as DroppableItemsType["type"],
+        type: label,
         label: "",
     };
     return {newDroppable};
