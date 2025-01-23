@@ -1,4 +1,4 @@
-import { DraggableList} from "@/models/DraggableList";
+import { DraggableList} from "@/data/models/DraggableList";
 import { DraggableItem } from "@/components/Draggable/DraggableItem.tsx";
 
 export const Draggable = () => 
