@@ -3,23 +3,21 @@ import plus from "@/assets/svg/plus.svg";
 import trash from "@/assets/svg/trash.svg";
 import save from "@/assets/svg/save.svg";
 import {Input, Label, Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription} from "@/utils/ShadcnElements.ts"
-import { FormData } from "@/types/Form/Form.ts";
-import { useCreateForm } from "@/hooks/Form/useCreateForm.ts";
+import { DroppableItemsType } from "@/types/Droppable/DroppableType.ts";
 import { useFormOptions } from "@/hooks/Form/useFormOptions.ts";
 import { useDroppableStore } from "@/store/useDroppableStore.ts";
-import { DroppableEditorProps } from "@/types/Droppable/DroppableType";
-
+import { DroppableEditorProps } from "@/types/Droppable/DroppableType.ts";
+import { DroppableValidation } from "@/components/Droppable/DroppableValidation.tsx";
+import { useFormDroppable } from "@/hooks/Form/useFormDroppable.ts";
 
 export const DroppableEditor = ({label}: DroppableEditorProps) => {
-
-    const {handleSubmit, register, control} = useCreateForm();
-
+    const {handleSubmit, register, control} = useFormDroppable();
+    
     const {fields, addOption, removeOption} = useFormOptions(control);
     
     const updateDroppable = useDroppableStore((state) => state.updateDroppable);
 
-
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: DroppableItemsType) => {
         updateDroppable(data);
     }
     return (
@@ -41,7 +39,9 @@ export const DroppableEditor = ({label}: DroppableEditorProps) => {
                                 className="my-[0.9rem]"
                                 {...register('label')} 
                             />
-    
+
+                            <DroppableValidation type={label} register={register} />
+
                             {(label === "SingleChoice" || label === 'MultipleChoice') && (
                                 <>
                                     <article className="py-2">

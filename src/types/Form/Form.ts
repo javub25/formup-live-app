@@ -1,5 +1,8 @@
+import { CSVData } from "@/types/Form/CSVData.ts";
 import { DroppableItemsType } from "@/types/Droppable/DroppableType.ts";
-import {Control} from "react-hook-form";
+import {Control, UseFormRegister, FieldErrors} from "react-hook-form";
 
-export type FormData = DroppableItemsType;
 export type ControlType = Control<DroppableItemsType>;
+export type UseFormRegisterType = UseFormRegister<DroppableItemsType>;
+export type UseFormRegisterCSV = UseFormRegister<CSVData>;
+export type ErrorsType = FieldErrors<CSVData>;
