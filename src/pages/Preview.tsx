@@ -1,21 +1,25 @@
 import {Toaster} from 'sonner';
-import { ErrorsType } from '@/types/Form/Form.ts';
-import { getErrors } from "@/utils/Form/getErrors";
-import { useDroppableStore } from "@/store/useDroppableStore.ts";
-import { DroppableList } from "@/components/Droppable/DroppableList";
 import alert from "@/assets/svg/alert.svg";
-import { useFormPreview } from "@/hooks/Form/useFormPreview";
-import { CSVData } from "@/types/Form/CSVData.ts";
 import download from "@/assets/svg/download.svg";
+import { DroppableList } from "@/components/Droppable/DroppableList";
+import { useFormPreview } from "@/hooks/Form/useFormPreview";
+import { useDroppableStore } from "@/store/useDroppableStore.ts";
+import { ErrorsType } from '@/types/Form/Form.ts';
+import { CSVData } from "@/types/Form/CSVData.ts";
+import { getErrors } from "@/utils/Form/getErrors";
+import { exportCSV } from '@/utils/Form/exportCSV';
+import { hasAvailableOptions } from '@/utils/Form/hasAvailableOptions.ts';
 
 export const Preview = () => 
 {
     const DroppableItems = useDroppableStore(state => state.DroppableItems);
-    const {register, handleSubmit} = useFormPreview();
+    const {register, handleSubmit} = useFormPreview();   
+    const {OptionsAvailable} = hasAvailableOptions(DroppableItems);
 
-    const onSubmit = (data: CSVData) => console.log(data);
-    
+    const onSubmit = (data: CSVData) => exportCSV(data);
+
     const onError = (errors: ErrorsType) => getErrors(errors)
+
 
     return (
         <div className="p-4">
@@ -46,11 +50,13 @@ export const Preview = () =>
                                     );
                                 })
                             }
-                            <button className="w-48 mx-auto flex items-center justify-center mt-8 bg-black rounded-md text-white p-2 border border-zinc-200" type="submit">
-                                <img src={download} alt="Export CSV" className="h-4 w-4 mr-2" />
-                                Export CSV
+                            <button className={`w-48 mx-auto flex items-center justify-center mt-8 rounded-md text-white p-2 border border-zinc-200 
+                                ${OptionsAvailable ? "bg-black" : "bg-gray-400 cursor-not-allowed"}`} type="submit" disabled={!OptionsAvailable}>
+                                    <img src={download} alt="Export CSV" className="h-4 w-4 mr-2" />
+                                    Export CSV
                             </button>
                         </form>
+
                         <Toaster richColors position="top-right"/>
                     </>
                 )}   
