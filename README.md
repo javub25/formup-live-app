@@ -3,7 +3,12 @@
 You can create custom forms in the Build tab by selecting elements, validating fields without coding, and editing fields. <br/>
 Use the Preview tab to adjust settings and export form results in a CSV file.
 
+![React](https://img.shields.io/badge/React-19.0.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-✓-blue)
+![Vite](https://img.shields.io/badge/Vite-6.1.1-brightgreen)
+![Shadcn](https://img.shields.io/badge/shadcn-ui)
 
+<img src="https://res.cloudinary.com/dye4ylysz/image/upload/v1747131806/formBuilder_screens_micswo.png" style="width:80%; height:auto" alt="FormBuilder website">
 
 ## Benefits ⭐
 
@@ -12,23 +17,7 @@ Use the Preview tab to adjust settings and export form results in a CSV file.
 3️⃣ &nbsp;Real use case as job application form, surveys. <br />
 
 
-## Demo
-![Alt text](https://res.cloudinary.com/dukcdzezp/image/upload/v1737995587/msedge_n0xr86r1Bv_oogrwz.gif "Demo FormUp")
-
-## Stack
-
-1️⃣ &nbsp;React + TypeScript - Build a typed Formup UI. <br />
-2️⃣ &nbsp;Shadcn/ui + TailwindCSS - Library components for: <br />
-   <div style="padding:0px 20px">
-    1️⃣ &nbsp;Form fields elements <br />
-    2️⃣ &nbsp;Build and Preview tabs <br />
-  </div>  
-<br />
-3️⃣ &nbsp;Dndkit - Drag and drop functionality to move FieldLibrary elements in the FormBuilder area. <br/>
-4️⃣ &nbsp;Zustand - Synchronize Droppable items data between Build and Preview Tabs.<br />
-5️⃣ &nbsp;React Hook Form - Validate form fields.
-
-<br />
+<br/>
 
 ## Structure
 
